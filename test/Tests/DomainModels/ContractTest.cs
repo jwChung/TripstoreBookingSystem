@@ -10,26 +10,11 @@ namespace Tripstore.DomainModels
         {
             // Arrange
             var invalidName = "";
-            var dummyMobileNumber = "010-1234-1234";
+            var dummyMobileNumber = MobileNumber.Parse("010-1234-1234");
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() => new Contract(invalidName, dummyMobileNumber));
         }
-
-        //[Fact]
-        //public void ConstructorWithValidNameCorrectlyInitializesName()
-        //{
-        //    // Arrange
-        //    var validName = "정진욱";
-        //    var dummyMobileNumber = "010-1234-1234";
-
-        //    // Act
-        //    var sut = new Contract(validName, dummyMobileNumber);
-
-        //    // Assert
-        //    string actual = sut.Name;
-        //    Assert.Equal(validName, actual);
-        //}
 
         [Theory]
         [InlineData("정진욱")]
@@ -37,7 +22,7 @@ namespace Tripstore.DomainModels
         public void ConstructorWithValidNameCorrectlyInitializesName(string validName)
         {
             // Arrange
-            var dummyMobileNumber = "010-1234-1234";
+            var dummyMobileNumber = MobileNumber.Parse("010-1234-1234");
 
             // Act
             var sut = new Contract(validName, dummyMobileNumber);
@@ -47,35 +32,19 @@ namespace Tripstore.DomainModels
             Assert.Equal(validName, actual);
         }
 
-        [Theory]
-        [InlineData("000-1234-1234")] // 010 아닌 시작번호
-        [InlineData("010-1234")]
-        [InlineData("011-1234-1234")]
-        [InlineData("010-12345-1234")]
-        [InlineData("010-1234-12346")]
-        public void ConstructorWithInvalidMobileNumberThrows(string invalidMobileNumber)
+        [Fact]
+        public void ConstructorWithMobileNumberCorrectlyInitializesMobileNumber()
         {
             // Arrange
             var dummyName = "정진욱";
-
-            // Act & Assert
-            Assert.Throws<ArgumentException>(() => new Contract(dummyName, invalidMobileNumber));
-        }
-
-        [Theory]
-        [InlineData("010-1234-1234")]
-        [InlineData("010-1235-1111")]
-        public void ConstructorWithValidMobileNumberCorrectlyInitializesMobileNumber(string validMobileNumber)
-        {
-            // Arrange
-            var dummyName = "정진욱";
+            var mobileNumber = MobileNumber.Parse("010-1234-1234");
 
             // Act
-            var sut = new Contract(dummyName, validMobileNumber);
+            var sut = new Contract(dummyName, mobileNumber);
 
             // Assert
-            string actual = sut.MobileNumber;
-            Assert.Equal(validMobileNumber, actual);
+            MobileNumber actual = sut.MobileNumber;
+            Assert.Equal(mobileNumber.Value, actual.Value);
         }
     }
 }
