@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\DomainModels\Tripstore.csproj" />
+    <ProjectReference Include="..\..\src\Tripstore\Tripstore.csproj" />
   </ItemGroup>
 
 </Project>

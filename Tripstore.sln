@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tripstore.Tests", "test\Tests\Tripstore.Tests.csproj", "{9EBBCF01-9E90-4FCD-92BB-A1A6F4549E6A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tripstore", "src\DomainModels\Tripstore.csproj", "{EA068EE0-8E2A-4453-96F5-5373091B6363}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tripstore", "src\Tripstore\Tripstore.csproj", "{EA068EE0-8E2A-4453-96F5-5373091B6363}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
