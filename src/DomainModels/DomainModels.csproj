@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AssemblyName>Tripstore.DomainModels</AssemblyName>
-    <RootNamespace>Tripstore.DomainModels</RootNamespace>
-  </PropertyGroup>
-
-</Project>
