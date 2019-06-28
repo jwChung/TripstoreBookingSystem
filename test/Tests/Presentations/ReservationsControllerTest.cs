@@ -103,14 +103,18 @@ namespace Tripstore.Presentations
             }
         }
 
-        [Fact]
-        public void PostWithInvalidMobileNumberReturnsBadRquest()
+        [Theory]
+        [InlineData("000-1234-1234")] // 010 아닌 시작번호
+        [InlineData("010-1234")]
+        [InlineData("011-1234-1234")]
+        [InlineData("010-12345-1234")]
+        [InlineData("010-1234-12346")]
+        public void PostWithInvalidMobileNumberReturnsBadRquest(string invalidMobilNumber)
         {
             try
             {
                 // Arrange
                 var sut = new ReservationsController();
-                var invalidMobilNumber = "000-1234-1234";
                 this.makeReservation.MobileNumber = invalidMobilNumber;
 
                 // Act
